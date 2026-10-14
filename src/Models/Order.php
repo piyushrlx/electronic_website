@@ -52,7 +52,7 @@ class Order {
             // 3. Insert line items & deduct stock
             $itemStmt = $this->pdo->prepare("INSERT INTO order_items (order_id, product_id, quantity, unit_price) VALUES (:order_id, :product_id, :quantity, :unit_price)");
             $stockCheckStmt = $this->pdo->prepare("SELECT stock, name FROM products WHERE id = :id FOR UPDATE");
-            $stockUpdateStmt = $this->pdo->prepare("UPDATE products SET stock = stock - :qty WHERE id = :id AND stock >= :qty");
+            $stockUpdateStmt = $this->pdo->prepare("UPDATE products SET stock = stock - :deduct_qty WHERE id = :id AND stock >= :min_qty");
 
             foreach ($cartItems as $item) {
                 $productId = (int) $item['product_id'];
@@ -68,7 +68,11 @@ class Order {
                 }
 
                 // Deduct stock
-                $stockUpdateStmt->execute([':qty' => $quantity, ':id' => $productId]);
+                $stockUpdateStmt->execute([
+                    ':deduct_qty' => $quantity,
+                    ':id' => $productId,
+                    ':min_qty' => $quantity,
+                ]);
 
                 // Record item
                 $itemStmt->execute([

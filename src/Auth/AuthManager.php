@@ -34,8 +34,11 @@ class AuthManager {
             }
         }
 
-        $stmt = $this->pdo->prepare("SELECT * FROM admins WHERE (username = :ident OR email = :ident) AND is_active = 1 LIMIT 1");
-        $stmt->execute([':ident' => trim($identifier)]);
+        $stmt = $this->pdo->prepare("SELECT * FROM admins WHERE (username = :user_ident OR email = :email_ident) AND is_active = 1 LIMIT 1");
+        $stmt->execute([
+            ':user_ident' => trim($identifier),
+            ':email_ident' => trim($identifier),
+        ]);
         $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$admin || !password_verify($password, $admin['password_hash'])) {

@@ -22,8 +22,31 @@ if (!$product) {
 $pageTitle = $product['name'] . ' - TechFusion Specifications';
 $pageDesc = $product['description'] ?? 'Detailed specifications and ordering for ' . $product['name'];
 
+// JSON-LD Schema.org Structured Data
+$jsonLd = [
+    "@context" => "https://schema.org/",
+    "@type" => "Product",
+    "name" => $product['name'],
+    "image" => [$product['image_url']],
+    "description" => $product['description'] ?? '',
+    "brand" => [
+        "@type" => "Brand",
+        "name" => $product['brand'],
+    ],
+    "offers" => [
+        "@type" => "Offer",
+        "priceCurrency" => "USD",
+        "price" => (string)$product['price'],
+        "availability" => ($product['stock'] > 0) ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+    ],
+];
+
 require_once __DIR__ . '/../templates/header.php';
 ?>
+<script type="application/ld+json">
+<?= json_encode($jsonLd, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) ?>
+</script>
+<?php
 
 <div class="tf-container" style="padding-top: 2.5rem; padding-bottom: 5rem;">
     <!-- Breadcrumb Navigation -->

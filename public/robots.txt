@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /index.php
+Allow: /product.php
+Allow: /cart.php
+Allow: /track-order.php
+
+Disallow: /admin/
+Disallow: /api/
+Disallow: /checkout.php
+Disallow: /order-success.php
+
+Sitemap: https://techfusion.vercel.app/sitemap.xml
