@@ -1,0 +1,25 @@
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+
+# Vendor & dependencies
+vendor/
+node_modules/
+
+# Logs & temp
+*.log
+storage/logs/*.log
+storage/cache/*
+storage/sessions/*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE config
+.idea/
+.vscode/
+*.suo
+*.user
