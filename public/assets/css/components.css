@@ -1,0 +1,466 @@
+/**
+ * TechFusion UI Components
+ * Cyber-Luxury Component Library
+ */
+
+/* 1. Header & Navigation */
+.tf-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--tf-surface-glass);
+    backdrop-filter: var(--tf-backdrop-blur);
+    -webkit-backdrop-filter: var(--tf-backdrop-blur);
+    border-bottom: 1px solid var(--tf-border-glass);
+    transition: var(--tf-transition);
+}
+
+.tf-nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    gap: 1.5rem;
+}
+
+.tf-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--tf-font-headline);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--tf-text-primary);
+}
+
+.tf-logo-icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--tf-primary) 0%, var(--tf-secondary-light) 100%);
+    border-radius: var(--tf-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #050811;
+    font-weight: 800;
+    box-shadow: 0 0 15px var(--tf-primary-glow);
+}
+
+.tf-logo-text span {
+    color: var(--tf-primary);
+}
+
+.tf-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.tf-nav-link {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--tf-text-muted);
+    padding: 0.5rem 0.25rem;
+    position: relative;
+}
+
+.tf-nav-link:hover,
+.tf-nav-link.active {
+    color: var(--tf-primary);
+}
+
+.tf-nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--tf-primary);
+    box-shadow: 0 0 8px var(--tf-primary-glow);
+}
+
+.tf-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* 2. Cyber Buttons */
+.btn-cyber {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--tf-primary);
+    color: #050811;
+    font-family: var(--tf-font-headline);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    border: none;
+    border-radius: var(--tf-radius-md);
+    cursor: pointer;
+    box-shadow: 0 0 20px var(--tf-primary-glow);
+    transition: var(--tf-transition);
+    text-transform: uppercase;
+}
+
+.btn-cyber:hover {
+    background: var(--tf-primary-hover);
+    color: #050811;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 30px var(--tf-primary-glow);
+}
+
+.btn-cyber:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.btn-ghost-glass {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--tf-surface-glass);
+    color: var(--tf-tertiary);
+    font-family: var(--tf-font-headline);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    border: 1px solid var(--tf-border-glass);
+    border-radius: var(--tf-radius-md);
+    cursor: pointer;
+    backdrop-filter: var(--tf-backdrop-blur);
+    transition: var(--tf-transition);
+}
+
+.btn-ghost-glass:hover {
+    border-color: var(--tf-primary);
+    background: var(--tf-surface-glass-active);
+    color: var(--tf-text-primary);
+    box-shadow: 0 0 16px rgba(0, 240, 255, 0.2);
+}
+
+.btn-sm {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.8125rem;
+}
+
+.btn-icon {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border-radius: var(--tf-radius-md);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 3. Cards & Product Showcase */
+.tf-card {
+    background: var(--tf-surface-glass-card);
+    backdrop-filter: var(--tf-backdrop-blur);
+    -webkit-backdrop-filter: var(--tf-backdrop-blur);
+    border: 1px solid var(--tf-border-glass);
+    border-radius: var(--tf-radius-lg);
+    box-shadow: var(--tf-shadow-glass);
+    overflow: hidden;
+    transition: var(--tf-transition);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.tf-card:hover {
+    border-color: var(--tf-border-glass-glow);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 240, 255, 0.15);
+}
+
+.tf-card-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    background: #090e1a;
+}
+
+.tf-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.tf-card:hover .tf-card-media img {
+    transform: scale(1.05);
+}
+
+.tf-card-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2;
+}
+
+.tf-card-body {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.tf-card-category {
+    font-family: var(--tf-font-headline);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--tf-primary);
+    margin-bottom: 0.4rem;
+}
+
+.tf-card-title {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.tf-card-title a {
+    color: var(--tf-text-primary);
+}
+
+.tf-card-title a:hover {
+    color: var(--tf-primary);
+}
+
+.tf-card-desc {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--tf-text-muted);
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.tf-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--tf-border-subtle);
+}
+
+.tf-card-price {
+    font-family: var(--tf-font-headline);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--tf-text-primary);
+}
+
+/* 4. Badges & Telemetry Chips */
+.tf-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.65rem;
+    font-family: var(--tf-font-headline);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: var(--tf-radius-full);
+    background: rgba(11, 15, 25, 0.85);
+    border: 1px solid var(--tf-border-glass);
+    color: var(--tf-text-muted);
+}
+
+.tf-badge-pip {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 6px currentColor;
+}
+
+.tf-badge-cyan {
+    border-color: rgba(0, 240, 255, 0.4);
+    color: var(--tf-primary);
+    background: rgba(0, 240, 255, 0.08);
+}
+
+.tf-badge-success {
+    border-color: rgba(0, 230, 118, 0.4);
+    color: var(--tf-success);
+    background: rgba(0, 230, 118, 0.08);
+}
+
+.tf-badge-warning {
+    border-color: rgba(255, 214, 0, 0.4);
+    color: var(--tf-warning);
+    background: rgba(255, 214, 0, 0.08);
+}
+
+.tf-badge-error {
+    border-color: rgba(255, 23, 68, 0.4);
+    color: var(--tf-error);
+    background: rgba(255, 23, 68, 0.08);
+}
+
+/* 5. Inputs & Forms */
+.tf-form-group {
+    margin-bottom: 1.25rem;
+}
+
+.tf-label {
+    display: block;
+    font-family: var(--tf-font-headline);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--tf-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.tf-input, .tf-select, .tf-textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: rgba(5, 8, 17, 0.85);
+    border: 1px solid rgba(69, 162, 158, 0.3);
+    border-radius: var(--tf-radius-md);
+    color: var(--tf-text-primary);
+    font-family: var(--tf-font-body);
+    font-size: 0.9375rem;
+    transition: var(--tf-transition);
+}
+
+.tf-input:focus, .tf-select:focus, .tf-textarea:focus {
+    outline: none;
+    border-color: var(--tf-primary);
+    box-shadow: 0 0 12px var(--tf-primary-glow);
+}
+
+.tf-input::placeholder {
+    color: var(--tf-text-dim);
+}
+
+/* 6. Filter HUD Bar */
+.tf-filter-hud {
+    background: var(--tf-surface-glass);
+    backdrop-filter: var(--tf-backdrop-blur);
+    border: 1px solid var(--tf-border-glass);
+    border-radius: var(--tf-radius-lg);
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.tf-chip-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tf-chip {
+    padding: 0.4rem 1rem;
+    background: rgba(11, 15, 25, 0.6);
+    border: 1px solid var(--tf-border-subtle);
+    border-radius: var(--tf-radius-full);
+    font-family: var(--tf-font-headline);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--tf-text-muted);
+    cursor: pointer;
+    transition: var(--tf-transition);
+}
+
+.tf-chip:hover {
+    color: var(--tf-primary);
+    border-color: var(--tf-primary);
+}
+
+.tf-chip.active {
+    background: rgba(0, 240, 255, 0.12);
+    border-color: var(--tf-primary);
+    color: var(--tf-primary);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+/* 7. Slide-Out Cart Drawer */
+.tf-drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 8, 17, 0.75);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.tf-drawer-backdrop.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tf-cart-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 440px;
+    background: var(--tf-surface-elevated);
+    border-left: 1px solid var(--tf-border-glass);
+    z-index: 2001;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.7);
+}
+
+.tf-drawer-backdrop.open .tf-cart-drawer {
+    transform: translateX(0);
+}
+
+.tf-cart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--tf-border-glass);
+}
+
+.tf-cart-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+}
+
+.tf-cart-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--tf-border-glass);
+    background: var(--tf-surface);
+}
+
+.tf-cart-counter {
+    background: var(--tf-primary);
+    color: #050811;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.15rem 0.45rem;
+    border-radius: var(--tf-radius-full);
+}

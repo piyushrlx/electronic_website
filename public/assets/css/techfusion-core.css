@@ -1,0 +1,164 @@
+/**
+ * TechFusion Core Stylesheet
+ * Brand: TechFusion (Cyber-Luxury Electronics)
+ * Modern Design System Tokens & Base Reset
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+    /* Color Tokens (Dark Theme Default) */
+    --tf-bg-base: #050811;
+    --tf-bg-radial: radial-gradient(circle at 50% 0%, #0d1a2d 0%, #050811 75%);
+    --tf-surface: #0f131d;
+    --tf-surface-elevated: #161a26;
+    --tf-surface-container: #1c1f2a;
+    --tf-surface-container-high: #262a35;
+    
+    /* Glassmorphic Surfaces */
+    --tf-surface-glass: rgba(11, 15, 25, 0.70);
+    --tf-surface-glass-card: rgba(16, 24, 40, 0.78);
+    --tf-surface-glass-active: rgba(22, 31, 51, 0.85);
+    
+    /* Chromatic Accents */
+    --tf-primary: #00f0ff;
+    --tf-primary-hover: #66fcf1;
+    --tf-primary-dim: #00b4c0;
+    --tf-primary-glow: rgba(0, 240, 255, 0.35);
+    --tf-secondary: #45a29e;
+    --tf-secondary-light: #7bd6d1;
+    --tf-tertiary: #66fcf1;
+    
+    /* Borders & Hairlines */
+    --tf-border-glass: rgba(102, 252, 241, 0.15);
+    --tf-border-glass-glow: rgba(0, 240, 255, 0.50);
+    --tf-border-subtle: rgba(255, 255, 255, 0.08);
+    
+    /* Typography Tokens */
+    --tf-text-primary: #f0f6fc;
+    --tf-text-muted: #8b9bb4;
+    --tf-text-dim: #546277;
+    --tf-font-headline: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    --tf-font-body: 'Sora', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    
+    /* Feedback States */
+    --tf-success: #00e676;
+    --tf-success-glow: rgba(0, 230, 118, 0.35);
+    --tf-warning: #ffd600;
+    --tf-warning-glow: rgba(255, 214, 0, 0.35);
+    --tf-error: #ff1744;
+    --tf-error-glow: rgba(255, 23, 68, 0.35);
+    
+    /* Spacing & Radii */
+    --tf-radius-sm: 6px;
+    --tf-radius-md: 10px;
+    --tf-radius-lg: 16px;
+    --tf-radius-xl: 24px;
+    --tf-radius-full: 9999px;
+    
+    --tf-shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.45);
+    --tf-shadow-glow: 0 0 25px rgba(0, 240, 255, 0.25);
+    --tf-backdrop-blur: blur(20px);
+    
+    --tf-container-max: 1280px;
+    --tf-transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Light Theme Variable Overrides */
+[data-theme="light"] {
+    --tf-bg-base: #f4f7fc;
+    --tf-bg-radial: radial-gradient(circle at 50% 0%, #e2eaf5 0%, #f4f7fc 80%);
+    --tf-surface: #ffffff;
+    --tf-surface-elevated: #f8fafc;
+    --tf-surface-container: #edf2f7;
+    --tf-surface-container-high: #e2e8f0;
+    
+    --tf-surface-glass: rgba(255, 255, 255, 0.82);
+    --tf-surface-glass-card: rgba(255, 255, 255, 0.90);
+    --tf-surface-glass-active: #ffffff;
+    
+    --tf-primary: #008f9c;
+    --tf-primary-hover: #007782;
+    --tf-primary-dim: #005a63;
+    --tf-primary-glow: rgba(0, 143, 156, 0.25);
+    
+    --tf-border-glass: rgba(0, 143, 156, 0.20);
+    --tf-border-glass-glow: rgba(0, 143, 156, 0.45);
+    --tf-border-subtle: rgba(0, 0, 0, 0.08);
+    
+    --tf-text-primary: #090d16;
+    --tf-text-muted: #4a5568;
+    --tf-text-dim: #718096;
+    
+    --tf-shadow-glass: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* Base Reset & Core Document Styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    color-scheme: dark;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--tf-bg-base);
+    background-image: var(--tf-bg-radial);
+    background-attachment: fixed;
+    color: var(--tf-text-primary);
+    font-family: var(--tf-font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--tf-font-headline);
+    color: var(--tf-text-primary);
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+h1 { font-size: clamp(2rem, 4vw, 3.25rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
+h4 { font-size: 1.25rem; font-weight: 600; }
+
+p {
+    color: var(--tf-text-muted);
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--tf-primary);
+    text-decoration: none;
+    transition: var(--tf-transition);
+}
+
+a:hover {
+    color: var(--tf-primary-hover);
+}
+
+/* Layout Container */
+.tf-container {
+    width: 100%;
+    max-width: var(--tf-container-max);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .tf-container {
+        padding: 0 1rem;
+    }
+}

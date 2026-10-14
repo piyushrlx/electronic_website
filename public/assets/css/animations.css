@@ -1,0 +1,88 @@
+/**
+ * TechFusion Animations & Micro-Interactions
+ * Fluid GPU-accelerated motion with accessibility compliance
+ */
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 15px var(--tf-primary-glow);
+    }
+    50% {
+        box-shadow: 0 0 30px var(--tf-primary-glow), 0 0 10px var(--tf-primary);
+    }
+}
+
+@keyframes shimmerSkeleton {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 24px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes telemetryBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+}
+
+@keyframes cartBadgeBounce {
+    0%, 100% { transform: scale(1); }
+    40% { transform: scale(1.35); }
+    70% { transform: scale(0.9); }
+}
+
+/* Animation Classes */
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-glow {
+    animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+.animate-telemetry {
+    animation: telemetryBlink 1.8s infinite ease-in-out;
+}
+
+.cart-badge-bounce {
+    animation: cartBadgeBounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Skeleton Loading State */
+.tf-skeleton {
+    background: linear-gradient(90deg, rgba(28, 31, 42, 0.6) 25%, rgba(45, 52, 70, 0.6) 50%, rgba(28, 31, 42, 0.6) 75%);
+    background-size: 200% 100%;
+    animation: shimmerSkeleton 1.6s infinite;
+    border-radius: var(--tf-radius-sm);
+}
+
+/* Micro-Interactions */
+.hover-lift {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+}
+
+/* Accessibility: Respect Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
